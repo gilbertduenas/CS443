@@ -1,0 +1,64 @@
+1
+SELECT MIN(sales) AS "Minimum_Sales",
+MAX(sales) AS "Maximum_Sales"
+FROM offices;
+
+2
+SELECT COUNT(*) AS "Orders_Made_1989"
+FROM orders
+WHERE order_date >= '01-JAN-89'
+AND order_date <= '31-DEC-89';
+
+3
+SELECT title, COUNT(title) AS "Count"
+FROM salesreps
+WHERE title IN ('Sales Rep', 'Sales Mgr', 'VP Sales')
+GROUP BY title;
+
+4
+SELECT rep_office AS "Office_ID", AVG(quota) AS "Average_Quota"
+FROM salesreps
+WHERE rep_office = 12
+GROUP BY rep_office;
+
+5
+SELECT rep_office AS "Office_ID", AVG(sales) AS "Average_Sales"
+FROM salesreps
+WHERE title = 'Sales Rep'
+GROUP BY rep_office;
+
+6
+SELECT salesreps.empl_num AS "Number", salesreps.name AS "Employee", 
+MIN(orders.amount) AS "Order_Min",
+MAX(orders.amount) AS "Order_Max",
+AVG(orders.amount) AS "Order_Avg"
+FROM orders, salesreps
+WHERE salesreps.title = 'Sales Rep'
+AND orders.rep = salesreps.empl_num
+GROUP BY salesreps.empl_num, salesreps.name
+HAVING COUNT(orders.order_num) > 1;
+
+7
+SELECT
+FROM ;
+
+SELECT
+FROM ;
+
+SELECT
+FROM ;
+
+SELECT
+FROM ;
+
+SELECT
+FROM ;
+
+SELECT
+FROM ;
+
+SELECT
+FROM ;
+
+SELECT
+FROM ;
